@@ -39,13 +39,16 @@ public class Partner_Report_Importer {
 		conds.put("accountguid",new String[]{"maxlength","32",""});
 		// assign value for mapping from json file
 		mapValues.put("partnerid",json); 
+		//mapping table header for Charable table
 		mapHeadersCharable.put("partnumber","A_product");
 		mapHeadersCharable.put("partnerid","A_partnerid");
 		mapHeadersCharable.put("accountguid","A_partnerpurchasedplanid");
 		mapHeadersCharable.put("plan","A_plan");
 		mapHeadersCharable.put("itemcount","A_usage"); // v 
+		//mapping table header for Domains table 
 		mapHeadersDomains.put("accountguid","B_partnerpurchasedplanid");
 		mapHeadersDomains.put("domains","B_domain");
+		//map unitreduction 
 		unitReduction.put("partnerid-EA000001GB0O","1000");
 		unitReduction.put("partnerid-PMQ00005GB0R","5000");
 		unitReduction.put("partnerid-SSX006NR","1000");
@@ -65,6 +68,7 @@ public class Partner_Report_Importer {
                 itemCountSum++;
         }
         System.out.println("Total Item Count : " + itemCountSum);
+		//create chargeable table query
 		String queries="";
 		for(int i=0; i<mappedChargeable.size();i++){
 			HashMap<String,String> row = mappedChargeable.get(i);
@@ -73,6 +77,7 @@ public class Partner_Report_Importer {
 			queries += query;
 		}
 		HashMap<String,Integer> executed = new HashMap<String,Integer>();
+		//create domains table query 
 		for(int i=0; i<mappedDomains.size();i++){
                         HashMap<String,String> row = mappedDomains.get(i);
 			String domain = row.get("B_domain");
