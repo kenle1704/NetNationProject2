@@ -4,3 +4,5 @@ You will require to add gson-2.8.6.jar and mysql-connector-java-8.0.23.jar to yo
 and replace the contend in .classpath.
 This is using eclipse DE to compile and run thus you may need to use it , 
 You also need to change the DB cridential in DB_Connector to connect DB 
+
+My database is a little bit different with requirement because i could not create usage column in chargeable table that i decide to use my own name convension 
